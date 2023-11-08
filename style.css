@@ -1,0 +1,234 @@
+@import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    font-family: 'Coda', cursive;
+    background-color: burlywood;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Lily Script One', 'helvetica', Arial, sans-serif;
+    font-weight: 400;
+    color: brown;
+    font-size: 58px;
+    text-shadow: 10px 9px 1px white;
+}
+
+
+
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    align-items: center;
+    background: burlywood;
+    border-radius: 10px;
+    box-shadow: 2px 10px 20px 0 rgba(87, 86, 86, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 3em;
+    min-height: 680px;
+    padding: 32px;
+    width: 660px;
+}
+
+.deck .card {
+    align-items: center;
+    background: brown;
+    border-radius: 8px;
+    box-shadow: 10px 9px 10px #2b2929;
+    color:#ffffff;
+    cursor: pointer;
+    display: flex;
+    font-size: 0;
+    justify-content: center;
+    height: 125px;
+    width: 125px;
+    transition: 0.3s ease;
+}
+.deck .card:hover{
+    background-color:rgb(177, 48, 48);
+    box-shadow: none;
+}
+
+.deck .card.open {
+    background: #02b3e4;
+    cursor: default;
+    transform: rotateY(0);
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+    transition: all 0.2s ease;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 530px;
+}
+
+.score-panel .stars {
+    display: inline-block;
+    margin: 0;
+    margin: 0 5px 0 0;
+    padding: 0;
+    width: 15%;
+}
+
+.score-panel .stars li {
+    color: brown;
+    display: inline-block;
+    list-style: none;
+}
+
+.score-panel .timeElapsed {
+    color: brown;
+    display: inline-block;
+    width: 25%;
+}
+
+.score-panel .moves {
+    color: brown;
+    display: inline-block;
+    width: 25%;
+}
+
+.score-panel .matched {
+    color: brown;
+    display: inline-block;
+    width: 25%;
+}
+
+.score-panel .restart {
+    color: brown;
+    cursor: pointer;
+    float: right;
+    text-align: right;
+    text-align: center;
+
+}
+
+/*
+ * Styles for Animations
+ */
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.shake-to-shuffle {
+    animation: shake 1s;
+    /* animation-iteration-count: infinite; */
+}
+
+
+
+@keyframes jump-shaking {
+    0% {
+        transform: translateX(0)}
+    25% {
+        transform: translateY(-9px) }
+     35% {
+        transform: translateY(-9px) rotate(17deg)}
+     55% {
+        transform: translateY(-9px) rotate(-17deg)}
+     65% {
+        transform: translateY(-9px) rotate(17deg)}
+     75% {
+        transform: translateY(-9px) rotate(-17deg)}
+     100% {
+        transform: translateY(0) rotate(0)}
+}
+
+
+.toBeReflipped {
+    animation: jump-shaking 0.83s;
+}
+
+.match {
+    transform: scale(1.1);
+}
